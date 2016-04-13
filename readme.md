@@ -5,6 +5,8 @@ Esta é uma breve demostração de conhecimento de Python (API de Comunicação 
 
 A idéia é fazer algo diferente (que não se encontra pronto na Internet), pois assim ficará claro que não se trata de plágio.
 
+OBS: Todo o código será feito e comentado em Inglês
+
 A demonstração será uma mescla de tecnologia nacional (integração com os Correios) e tecnologia internacional - integração com o Twitter (integração com a API RESTFull do Twitter).
 
 A idéia básica é:
