@@ -8,11 +8,11 @@ A idéia é fazer algo diferente (que não se encontra pronto na Internet), pois
 A demonstração será uma mescla de tecnologia nacional (integração com os Correios) e tecnologia internacional - integração com o Twitter (integração com a API RESTFull do Twitter).
 
 A idéia básica é:
-* 1. O usuário informa um CEP
-* 2. A partir do CEP eu vou buscar nos Correios a cidade referente ao CEP informado
-* 3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
-* 4. As cidades serão todas gravadas em banco de dados
-* 5. Os dados gravados em banco de dados vão gerar endpoints que serão consumidos pelo Frontend
+1. O usuário informa um CEP
+2. A partir do CEP eu vou buscar nos Correios a cidade referente ao CEP informado
+3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
+4. As cidades serão todas gravadas em banco de dados
+5. Os dados gravados em banco de dados vão gerar endpoints que serão consumidos pelo Frontend
 
 
 Ao decorrer do projeto será adicionado mais funcionalidades para poder utilizar todos os verbos GET, POST, PUT e DELETE, bem como tratar e usar a maior quantidade de status http (200, 404, etc...)
@@ -32,17 +32,17 @@ Foi utilizado o Framework Flask e há tratamento de erros.
 ## Detalhes de desenvolvimento
 
 * Segunda noite: 12/04/2016
-* Foram aplicadas algumas melhorias no tratamento de erros
-* Adicionado conexão com o banco de dados MySql
-* Adicionado integração de busca de CEP utilizando-se o serviço https://viacep.com.br
-* O resultado das buscas são incluídos no banco de dados
+1. Foram aplicadas algumas melhorias no tratamento de erros
+2. Adicionado conexão com o banco de dados MySql
+3. Adicionado integração de busca de CEP utilizando-se o serviço https://viacep.com.br
+4. O resultado das buscas são incluídos no banco de dados
 
 
 * Primeira noite: 11/04/2016
-* Configuração do ambiente de desenvolvimento nas plataformas Windows e Linux
-* Criação de conta no GitHub para alocar o projeto
-* Criação de uma aplicação básica em Python para autenticar com o Twitter via API sem framework
-* Inicio do desenvolvimento da idéia do aplicativo utilizando-se Phyton e o framework Flask
+1. Configuração do ambiente de desenvolvimento nas plataformas Windows e Linux
+2. Criação de conta no GitHub para alocar o projeto
+3. Criação de uma aplicação básica em Python para autenticar com o Twitter via API sem framework
+4. Inicio do desenvolvimento da idéia do aplicativo utilizando-se Phyton e o framework Flask
 
 ## Instalação
 
