@@ -1,6 +1,6 @@
 # ----------------------------------
-# This is a small sample showing how to connect to twitter Rest API using urllib3 and get client credentials
-# Python and Flask framework - It shows how to use OAuth 1
+# This sample shows how to connect to twitter Rest API using OAuth 1
+# Python and Flask framework
 # Code by Fernando Matsuo Santos
 # Date: 2016/04/11
 # ----------------------------------

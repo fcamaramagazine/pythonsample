@@ -1,13 +1,12 @@
 # ----------------------------------
-# This is a small sample showing how to connect to twitter Rest API using urllib3 and get client credentials
-# Error handling implemented on Flask Framework version
-# It only shows how to use OAuth 2
+# This is a small sample showing how to connect to twitter Rest API using OAuth 2
+# Error handling implemented only on Flask Framework version
 # Code by Fernando Matsuo Santos
 # Date: 2016/04/11
 # ----------------------------------
 
 # ----------------------------------
-# Note: this is a small sample. No error handling implemented.
+# Note: this is a small sample. No error handling implemented in this file.
 # ----------------------------------
 
 import urllib3, json, base64
