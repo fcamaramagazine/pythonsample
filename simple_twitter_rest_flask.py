@@ -1,20 +1,28 @@
 # ----------------------------------
 # This is a small sample showing how to connect to twitter Rest API using urllib3 and get client credentials
-# Just Python - Flask framework - It shows how to use OAuth 1
+# Python and Flask framework - It shows how to use OAuth 1
 # Code by Fernando Matsuo Santos
 # Date: 2016/04/11
 # ----------------------------------
-import requests, json
+import requests, json, unicodedata
 from flask import Flask
 from flask import g, session, request, url_for, flash
 from flask import redirect, render_template
 from flask import jsonify
 from flask_oauthlib.client import OAuth
+from flask.ext.mysqldb import MySQL
 
 # Begin the app with Flask Framework
 app = Flask(__name__)
 app.debug = True
 app.secret_key = 'development'
+mysql = MySQL()
+app.config['MYSQL_USER'] = 'magazine'
+app.config['MYSQL_PASSWORD'] = 'mag@fcama^2016#'
+app.config['MYSQL_DB'] = 'fcamaramagazine'
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_PORT'] = 4417
+mysql.init_app(app)
 
 # Uses Twitter OAuth 1 endpoint
 oauth = OAuth(app)
@@ -48,24 +56,56 @@ def before_request():
 def index():
     tweets = None
     if g.user is not None:
-        response = twitter.request('statuses/home_timeline.json')
+        response = twitter.request('statuses/home_timeline.json?count=5')
         if response.status == 200:
             tweets = response.data
         else:
-            flash('Unable to load tweets from Twitter.')
+            flash('Erro ao carregar Tweets da timeline.')
     return render_template('index.html', tweets=tweets)
 
 # Search CEP information 
 @app.route('/cep', methods=['POST'])
 def search_cep():
-    #cep = request.form['cep']
-	cep = '01327000'
+	if g.user is None:
+		return redirect(url_for('login', next=request.url))
+
+	cep = request.form['cep']
+	if not cep:
+		flash('Informe um CEP para continuar')
+		return redirect(url_for('index'))
+
+	#search city from CEP
+	cep = request.form['cep']
 	url = 'https://viacep.com.br/ws/' + cep + '/json/'
 	response = requests.get(url)
 	json_data = json.loads(response.text)
-	cidade = (u'%s' % json_data['localidade'])
-	flash(cidade)
-	return redirect(url_for('index'))
+	city = (json_data['localidade'])
+
+	#remove accents and space from city
+	city = strip_accents(city)
+	city = city.replace(" ", "")
+
+	#search hashtag at Twitter
+	results = None
+	response = twitter.request('search/tweets.json?q=%23' + city)
+	if response.status == 200:
+		flash('Buscando no Tweeter por: ' + city)
+		results = response.data
+	else:
+		flash('Falha ao buscar a cidade no Twitter.')
+
+	#insert city hashtag into database
+	cursor = mysql.connection.cursor()
+	query = "insert into cities (city) values (%s)"
+	cursor.execute(query,[city])
+	mysql.connection.commit()
+
+	return render_template('index.html', results=results, city=city)
+
+# Remove accents from strings
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
 
 # Login at Twitter
 @app.route('/login')
@@ -84,7 +124,7 @@ def logout():
 def oauthorized():
     response = twitter.authorized_response()
     if response is None:
-        flash('You denied the request to sign in.')
+        flash('O acesso ao Twitter foi negado.')
     else:
         session['twitter_oauth'] = response
     return redirect(url_for('index'))

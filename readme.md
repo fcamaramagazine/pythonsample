@@ -1,6 +1,7 @@
 ## O projeto
 
-Esta é uma breve demostração de conhecimento de Python (API de Comunicação RESTful) com o prazo de conclusão de 4 dias (noites).
+Esta é uma breve demostração de conhecimento de Python (API de Comunicação RESTful) com o prazo de conclusão de 4 noites.
+(Eu fiz este projeto durante 4 noites, ou seja, após o horário de trabalho)
 
 A idéia é fazer algo diferente (que não se encontra pronto na Internet), pois assim ficará claro que não se trata de plágio.
 
@@ -10,8 +11,8 @@ A idéia básica é:
 1. O usuário informa um CEP
 2. A partir do CEP eu vou buscar nos Correios a cidade referente ao CEP informado
 3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
-4. As respostas serão todas gravadas em banco de dados
-5. Os dados gravados vão gerar endpoints que serão consumidos pelo Frontend
+4. As cidades serão todas gravadas em banco de dados
+5. Os dados gravados em banco de dados vão gerar endpoints que serão consumidos pelo Frontend
 
 Ao decorrer do projeto será adicionado mais funcionalidades para poder utilizar todos os verbos GET, POST, PUT e DELETE, bem como tratar e usar a maior quantidade de status http (200, 404, etc...)
 
@@ -27,6 +28,12 @@ Foi utilizado o Framework Flask e há tratamento de erros.
 *Como trata-se de uma simples demostração não foi realizado nenhum tratamento de erros neste arquivo em específico.*
 
 ## Detalhes de desenvolvimento
+
+* Segunda noite: 12/04/2016
+1. Foram aplicadas algumas melhorias no tratamento de erros
+2. Adicionado conexão com o banco de dados MySql
+3. Adicionado integração de busca de CEP utilizando-se o serviço https://viacep.com.br
+4. O resultado das buscas são incluídos no banco de dados
 
 * Primeira noite: 11/04/2016
 1. Configuração do ambiente de desenvolvimento nas plataformas Windows e Linux
