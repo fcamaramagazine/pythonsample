@@ -1,47 +1,50 @@
-## O projeto
+Ôªø## O projeto
 
-Esta È uma breve demostraÁ„o de conhecimento de Python (API de ComunicaÁ„o RESTful) com o prazo de conclus„o de 4 noites.
-(Eu fiz este projeto durante 4 noites, ou seja, apÛs o hor·rio de trabalho)
+Esta √© uma breve demostra√ß√£o de conhecimento de Python (API de Comunica√ß√£o RESTful) com o prazo de conclus√£o de 4 noites.
+(Eu fiz este projeto durante 4 noites, ou seja, ap√≥s o hor√°rio de trabalho)
 
-A idÈia È fazer algo diferente (que n„o se encontra pronto na Internet), pois assim ficar· claro que n„o se trata de pl·gio.
+A id√©ia √© fazer algo diferente (que n√£o se encontra pronto na Internet), pois assim ficar√° claro que n√£o se trata de pl√°gio.
 
-A demonstraÁ„o ser· uma mescla de tecnologia nacional (integraÁ„o com os Correios) e tecnologia internacional - integraÁ„o com o Twitter (integraÁ„o com a API RESTFull do Twitter).
+A demonstra√ß√£o ser√° uma mescla de tecnologia nacional (integra√ß√£o com os Correios) e tecnologia internacional - integra√ß√£o com o Twitter (integra√ß√£o com a API RESTFull do Twitter).
 
-A idÈia b·sica È: 
-1. O usu·rio informa um CEP
-2. A partir do CEP eu vou buscar nos Correios a cidade referente ao CEP informado
-3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
-4. As cidades ser„o todas gravadas em banco de dados
-5. Os dados gravados em banco de dados v„o gerar endpoints que ser„o consumidos pelo Frontend
+A id√©ia b√°sica √©:
+* 1. O usu√°rio informa um CEP
+* 2. A partir do CEP eu vou buscar nos Correios a cidade referente ao CEP informado
+* 3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
+* 4. As cidades ser√£o todas gravadas em banco de dados
+* 5. Os dados gravados em banco de dados v√£o gerar endpoints que ser√£o consumidos pelo Frontend
 
-Ao decorrer do projeto ser· adicionado mais funcionalidades para poder utilizar todos os verbos GET, POST, PUT e DELETE, bem como tratar e usar a maior quantidade de status http (200, 404, etc...)
 
-O desenvolvimento ser· tanto em ambiente Linux quanto Windows.
+Ao decorrer do projeto ser√° adicionado mais funcionalidades para poder utilizar todos os verbos GET, POST, PUT e DELETE, bem como tratar e usar a maior quantidade de status http (200, 404, etc...)
 
-## DescriÁ„o dos arquivos
+O desenvolvimento ser√° tanto em ambiente Linux quanto Windows.
 
-* simple_twitter_rest_flask.py = Uma aplicaÁ„o simples em Python que atravÈs de um CEP informado busca no Twitter posts sobre a cidade pertencente ao CEP.
-Ao contr·rio do exemplo abaixo neste exemplo foi utilizado OAuth 1 com a biblioteca flask_oauthlib
-Foi utilizado o Framework Flask e h· tratamento de erros.
+## Descri√ß√£o dos arquivos
 
-* simple_twitter_rest_no_framework.py = Uma simples demostraÁ„o em Python de como se autentica no Twitter utilizando-se OAuth 2 e fazendo a requisiÁ„o com urllib3 - a requisiÁ„o foi feita ajustando-se o verbo, o header e o corpo da requisiÁ„o.
-*Como trata-se de uma simples demostraÁ„o n„o foi realizado nenhum tratamento de erros neste arquivo em especÌfico.*
+* simple_twitter_rest_flask.py = Uma aplica√ß√£o simples em Python que atrav√©s de um CEP informado busca no Twitter posts sobre a cidade pertencente ao CEP.
+Ao contr√°rio do exemplo abaixo neste exemplo foi utilizado OAuth 1 com a biblioteca flask_oauthlib
+Foi utilizado o Framework Flask e h√° tratamento de erros.
+
+
+* simple_twitter_rest_no_framework.py = Uma simples demostra√ß√£o em Python de como se autentica no Twitter utilizando-se OAuth 2 e fazendo a requisi√ß√£o com urllib3 - a requisi√ß√£o foi feita ajustando-se o verbo, o header e o corpo da requisi√ß√£o.
+*Como trata-se de uma simples demostra√ß√£o n√£o foi realizado nenhum tratamento de erros neste arquivo em espec√≠fico.*
 
 ## Detalhes de desenvolvimento
 
 * Segunda noite: 12/04/2016
-1. Foram aplicadas algumas melhorias no tratamento de erros
-2. Adicionado conex„o com o banco de dados MySql
-3. Adicionado integraÁ„o de busca de CEP utilizando-se o serviÁo https://viacep.com.br
-4. O resultado das buscas s„o incluÌdos no banco de dados
+* Foram aplicadas algumas melhorias no tratamento de erros
+* Adicionado conex√£o com o banco de dados MySql
+* Adicionado integra√ß√£o de busca de CEP utilizando-se o servi√ßo https://viacep.com.br
+* O resultado das buscas s√£o inclu√≠dos no banco de dados
+
 
 * Primeira noite: 11/04/2016
-1. ConfiguraÁ„o do ambiente de desenvolvimento nas plataformas Windows e Linux
-2. CriaÁ„o de conta no GitHub para alocar o projeto
-3. CriaÁ„o de uma aplicaÁ„o b·sica em Python para autenticar com o Twitter via API sem framework
-4. Inicio do desenvolvimento da idÈia do aplicativo utilizando-se Phyton e o framework Flask
+* Configura√ß√£o do ambiente de desenvolvimento nas plataformas Windows e Linux
+* Cria√ß√£o de conta no GitHub para alocar o projeto
+* Cria√ß√£o de uma aplica√ß√£o b√°sica em Python para autenticar com o Twitter via API sem framework
+* Inicio do desenvolvimento da id√©ia do aplicativo utilizando-se Phyton e o framework Flask
 
-## InstalaÁ„o
+## Instala√ß√£o
 
 Em breve...
 
