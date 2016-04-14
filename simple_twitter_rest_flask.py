@@ -4,7 +4,7 @@
 # Code by Fernando Matsuo Santos
 # Date: 2016/04/11
 # ----------------------------------
-import requests, json, unicodedata
+import requests, json, unicodedata, re
 from flask import Flask
 from flask import g, session, request, url_for, flash
 from flask import redirect, render_template
@@ -70,8 +70,10 @@ def search_cep():
 		return redirect(url_for('login', next=request.url))
 
 	cep = request.form['cep']
-	if not cep:
-		flash('Informe um CEP para continuar')
+
+    #verify CEP with regular expression
+	if ((not cep) or (not re.match('^(\d{8})?$',cep))):
+		flash('Informe um CEP com 8 digitos numericos para continuar')
 		return redirect(url_for('index'))
 
 	#search city from CEP
@@ -94,7 +96,7 @@ def search_cep():
 	else:
 		flash('Falha ao buscar a cidade no Twitter.')
 
-	#insert city hashtag into database
+	#insert city hashtag into database protecting injection
 	cursor = mysql.connection.cursor()
 	query = "insert into cities (city) values (%s)"
 	cursor.execute(query,[city])
@@ -102,10 +104,20 @@ def search_cep():
 
 	return render_template('index.html', results=results, city=city)
 
-# Remove accents from strings
-def strip_accents(s):
-   return ''.join(c for c in unicodedata.normalize('NFD', s)
-                  if unicodedata.category(c) != 'Mn')
+@app.route('/api', methods=['GET', 'PUT', 'DELETE'])
+def city_search():
+    city_begin = request.args.get('city_begin')
+
+    #select city from database protecting injection
+    cursor = mysql.connection.cursor()
+    if city_begin == '':
+            query = "select distinct city, now() as datetime from cities"
+            cursor.execute(query)
+    else:
+        query = "select distinct city, now() as datetime from cities where city like %s"
+        cursor.execute(query,[city_begin + '%'])
+
+    return jsonify(cities=cursor.fetchall())
 
 # Login at Twitter
 @app.route('/login')
@@ -129,14 +141,13 @@ def oauthorized():
         session['twitter_oauth'] = response
     return redirect(url_for('index'))
 
-# 404 file not found error
+# handle errors, exceptions and 404 file not found errors
 @app.errorhandler(404)
 def page_not_found(error):
 	app.logger.error('Page not found: %s', (request.path))
 	#return '404 Error', 4044
 	return render_template('404.html'), 4044
 
-# handle errors and exceptions
 @app.errorhandler(500)
 def internal_server_error(error):
     app.logger.error('Server Error: %s', (error))
@@ -147,5 +158,10 @@ def unhandled_exception(e):
     app.logger.error('Unhandled Exception: %s', (e))
     return render_template('500.html'), 500
 
+# Remove accents from strings
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8085, debug=True)

@@ -5,8 +5,6 @@ Esta é uma breve demostração de conhecimento de Python (API de Comunicação 
 
 A idéia é fazer algo diferente (que não se encontra pronto na Internet), pois assim ficará claro que não se trata de plágio.
 
-OBS: Todo o código será feito e comentado em Inglês
-
 A demonstração será uma mescla de tecnologia nacional (integração com os Correios) e tecnologia internacional - integração com o Twitter (integração com a API RESTFull do Twitter).
 
 A idéia básica é:
@@ -33,13 +31,20 @@ Foi utilizado o Framework Flask e há tratamento de erros.
 
 ## Detalhes de desenvolvimento
 
-* Segunda noite: 12/04/2016
+* Terceira noite: 13/04/2016 para 14/04/2016
+1. Feito tratamento da variável de CEP utilizando-se expressão regular
+2. Feito um simples endpoint de API em /API que responde as cidades que foram procuradas baseando-se nos dados inseridos no MySql
+3. Juntado o script que gera a tabela do MySql no repositório
+4. Modificado a porta http da aplicação para 8085
+
+
+* Segunda noite: 12/04/2016 para 13/04/2016
 1. Foram aplicadas algumas melhorias no tratamento de erros
 2. Adicionado conexão com o banco de dados MySql
 3. O resultado das buscas são incluídos no banco de dados
 4. Adicionado integração de busca de CEP utilizando-se o serviço https://viacep.com.br
 
-* Primeira noite: 11/04/2016
+* Primeira noite: 11/04/2016 para 12/04/2016
 1. Configuração do ambiente de desenvolvimento nas plataformas Windows e Linux
 2. Criação de conta no GitHub para alocar o projeto
 3. Criação de uma aplicação básica em Python para autenticar com o Twitter via API sem framework
