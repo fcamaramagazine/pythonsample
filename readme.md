@@ -4,6 +4,7 @@ Esta é uma breve demostração de conhecimento de Python (API de Comunicação 
 (Eu vou fazer este projeto durante 4 noites, ou seja, após o horário de trabalho)
 
 *A idéia é fazer algo diferente (que não se encontra pronto na Internet), pois assim ficará claro que não se trata de plágio.*
+*O código bem como os comentários do código estão no idioma inglês*
 
 A demonstração será uma mescla de tecnologia nacional (integração com a busca de CEP dos Correios) e tecnologia internacional - integração com o Twitter (integração com a API RESTFul do Twitter).
 
