@@ -40,6 +40,7 @@ Razões pelo qual eu optei pelo MicroFramework Flask:
 ## Detalhes de desenvolvimento
 
 **Quarta noite: 14/04/2016 para 15/04/2016**
+
 1. API configurada para responder aos verbos ['GET', 'POST', 'PUT', 'DELETE']
 2. Feito Frontend desacoplado em Python (Flask) com tratamento de erros
 3. Configurado API para responder na porta 8086
@@ -48,12 +49,14 @@ Razões pelo qual eu optei pelo MicroFramework Flask:
 6. Entrega do projeto
 
 **Terceira noite: 13/04/2016 para 14/04/2016**
+
 1. Feito tratamento da variável de CEP utilizando-se expressão regular
 2. Feito um simples endpoint de API em /API que responde as cidades que foram procuradas baseando-se nos dados inseridos no MySql
 3. Juntado o script que gera a tabela do MySql no repositório
 4. Modificado a porta http da aplicação para 8085
 
 **Segunda noite: 12/04/2016 para 13/04/2016**
+
 1. Foram aplicadas algumas melhorias no tratamento de erros
 2. Adicionado conexão com o banco de dados MySql
 3. O resultado das buscas são incluídos no banco de dados
@@ -61,6 +64,7 @@ Razões pelo qual eu optei pelo MicroFramework Flask:
 5. Primeiro envio ao repositório (https://github.com/fcamaramagazine/pythonsample)
 
 **Primeira noite: 11/04/2016 para 12/04/2016**
+
 1. Configuração do ambiente de desenvolvimento nas plataformas Windows e Linux
 2. Criação de conta no GitHub para alocar o projeto
 3. Criação de uma aplicação básica em Python para autenticar com o Twitter via API sem framework
@@ -99,6 +103,6 @@ $ python frontend_flask.py
 ```
 
 Observação:
-- O arquivo python simple_twitter_rest_no_framework.py é apenas um scrit e irá rodar no próprio terminal
+- O arquivo python simple_twitter_rest_no_framework.py é apenas um script e irá rodar no próprio terminal
 - O arquivo python simple_twitter_rest_no_framework.py irá responder na porta 8085
 - O arquivo python frontend_flask.py irá responder na porta 8086
