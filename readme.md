@@ -33,7 +33,7 @@ Razões pelo qual eu optei pelo MicroFramework Flask:
 
 - *simple_twitter_rest_flask.py* = Uma aplicação simples em Python que através de um CEP informado busca no Twitter posts sobre a cidade pertencente ao CEP. Gera também um endpoint (API) que busca as informações previamente gravadas no banco de dados MySql e informa todas as cidades que foram buscadas no Twitter. Foi utilizado OAuth 1 com a biblioteca flask_oauthlib para a comunicação com o Twitter, bem como o Framework Flask. Está implementado tratamento de erros e log.
 
-- *frontend_flask.py* = Consome a API gerada pelo arquivo *simple_twitter_rest_flask.py* via server-side utilizando os verbos GET, PUT e DELETE. O html gerado informa a resposta e os verbos utilizados. Está implementado tratamento de erros e log.
+- *frontend_flask.py* = Consome a API gerada pelo arquivo *simple_twitter_rest_flask.py* de forma desacoplada via server-side utilizando os verbos GET, PUT e DELETE. O html gerado informa a resposta e os verbos utilizados. Está implementado tratamento de erros e log.
 
 - *simple_twitter_rest_no_framework.py* = Uma simples demostração em Python de como se autentica no Twitter utilizando-se OAuth 2 e fazendo a requisição com urllib3 - a requisição foi feita ajustando-se o verbo, o header e o corpo da requisição. 
 *Como trata-se de uma simples demostração não foi realizado nenhum tratamento de erros neste arquivo em específico.*
