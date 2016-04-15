@@ -8,6 +8,7 @@ Esta é uma breve demostração de conhecimento de Python (API de Comunicação 
 A demonstração será uma mescla de tecnologia nacional (integração com a busca de CEP dos Correios) e tecnologia internacional - integração com o Twitter (integração com a API RESTFul do Twitter).
 
 A idéia básica é:
+
 1. O usuário informa um CEP
 2. A partir do CEP eu vou buscar via API a cidade referente ao CEP informado
 3. Ao obter a cidade do CEP eu vou fazer uma busca no Twitter relacionada ao nome da cidade
