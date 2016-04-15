@@ -5,10 +5,11 @@
 # Date: 2016/04/11
 # ----------------------------------
 import requests, json, unicodedata, re
+import logging
+from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask import g, session, request, url_for, flash
 from flask import redirect, render_template
-from flask import jsonify
 from flask_oauthlib.client import OAuth
 from flask.ext.mysqldb import MySQL
 
@@ -104,20 +105,15 @@ def search_cep():
 
 	return render_template('index.html', results=results, city=city)
 
-@app.route('/api', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/api', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def city_search():
-    city_begin = request.args.get('city_begin')
-
-    #select city from database protecting injection
     cursor = mysql.connection.cursor()
-    if city_begin == '':
-            query = "select distinct city, now() as datetime from cities"
-            cursor.execute(query)
-    else:
-        query = "select distinct city, now() as datetime from cities where city like %s"
-        cursor.execute(query,[city_begin + '%'])
+    query = "select distinct city, %s as method from cities order by city"
+    cursor.execute(query,[request.method])
 
-    return jsonify(cities=cursor.fetchall())
+    screen_json = jsonify(cities=cursor.fetchall())
+    screen_json.status_code = 200
+    return screen_json
 
 # Login at Twitter
 @app.route('/login')
@@ -164,4 +160,7 @@ def strip_accents(s):
                   if unicodedata.category(c) != 'Mn')
 
 if __name__ == '__main__':
+    handler = RotatingFileHandler('simple_twitter_rest_flask.log', maxBytes=10000, backupCount=1)
+    handler.setLevel(logging.INFO)
+    app.logger.addHandler(handler)
     app.run(port=8085, debug=True)
